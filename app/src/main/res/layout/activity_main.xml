@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f172a"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- App Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Manager"
+        android:textColor="#e5e7eb"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1f2937"
+        app:tabIndicatorColor="#22c55e"
+        app:tabSelectedTextColor="#22c55e"
+        app:tabTextColor="#94a3b8"
+        app:tabMode="fixed"/>
+
+    <!-- Content Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 1. HOME TAB CONTENT -->
+        <LinearLayout
+            android:id="@+id/viewHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                app:hintTextColor="#94a3b8"
+                app:boxStrokeColor="#1f2937"
+                android:textColorHint="#94a3b8">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#e5e7eb"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Password"
+                    app:hintTextColor="#94a3b8">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#e5e7eb"
+                        android:inputType="textPassword"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btnCopyPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Copy"
+                    android:backgroundTint="#334155"
+                    android:textColor="#fff" />
+                <Button
+                    android:id="@+id/btnChangePass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change"
+                    android:backgroundTint="#334155"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cookies"
+                android:layout_marginTop="10dp"
+                app:hintTextColor="#94a3b8">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCookies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#e5e7eb"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Button Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <!-- Clear Button -->
+                <Button
+                    android:id="@+id/btnClearInputs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Clear"
+                    android:backgroundTint="#ef4444"
+                    android:textColor="#ffffff"
+                    android:layout_marginEnd="5dp"/>
+
+                <!-- Submit Button -->
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Convert & Push"
+                    android:backgroundTint="#22c55e"
+                    android:textColor="#0b1220"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Log Area -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Live Logs"
+                android:textColor="#94a3b8"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:background="#0b1220"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/tvLogs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#e5e7eb"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"/>
+            </ScrollView>
+            <Button
+                android:id="@+id/btnClearLogs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear Logs"
+                android:backgroundTint="#ef4444"
+                android:layout_marginTop="5dp"/>
+        </LinearLayout>
+
+        <!-- 2. SAVED TAB CONTENT -->
+        <LinearLayout
+            android:id="@+id/viewSaved"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnClearAccounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear All Saved Accounts"
+                android:backgroundTint="#ef4444"
+                android:layout_marginBottom="10dp"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/listContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- 3. SETTINGS TAB CONTENT -->
+        <ScrollView
+            android:id="@+id/viewSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:padding="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Application Settings"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="20dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Webhook URL"
+                    app:hintTextColor="#94a3b8">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etWebhook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#e5e7eb"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="JSON Filename"
+                    android:layout_marginTop="20dp"
+                    app:hintTextColor="#94a3b8">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFilename"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#e5e7eb"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnSaveSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Save Configuration"
+                    android:backgroundTint="#f97316"
+                    android:layout_marginTop="30dp"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 4. EXPORT TAB CONTENT -->
+        <LinearLayout
+            android:id="@+id/viewExport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Export Data"
+                android:textSize="24sp"
+                android:textColor="#fff"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Download all saved accounts to:\nDownload/insta_saver"
+                android:textColor="#94a3b8"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"/>
+
+            <Button
+                android:id="@+id/btnDownloadExport"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="Download File"
+                android:textSize="18sp"
+                android:backgroundTint="#22c55e"
+                android:drawableTop="@android:drawable/stat_sys_download"
+                android:drawablePadding="10dp"/>
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
